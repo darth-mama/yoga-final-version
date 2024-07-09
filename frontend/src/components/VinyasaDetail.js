@@ -10,7 +10,7 @@ const VinyasaDetail = () => {
 
   useEffect(() => {
     const fetchVinyasa = async () => {
-      const res = await axios.get(`/api/vinyasas/${id}`);
+      const res = await axios.get(`/api/my/vinyasas/${id}`);
       setVinyasa(res.data);
     };
     fetchVinyasa();
