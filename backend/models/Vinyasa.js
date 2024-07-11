@@ -19,10 +19,23 @@ module.exports = (sequelize, DataTypes) => {
     aromas: {
       type: DataTypes.JSONB,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "Users",
+        key: "id",
+      },
+    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
   });
+
+  Vinyasa.associate = (models) => {
+    Vinyasa.belongsTo(models.User, { foreignKey: "userId" });
+  };
+
   return Vinyasa;
 };

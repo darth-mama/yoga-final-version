@@ -6,6 +6,8 @@ import VinyasaForm from "./VinyasaForm";
 import VinyasaPreview from "./VinyasaPreview";
 import MyVinyasas from "./MyVinyasas";
 import Test from "./Test";
+import Login from "./Login";
+import Register from "./Register";
 
 const AppContent = () => {
   return (
@@ -16,6 +18,8 @@ const AppContent = () => {
         <Route path="/create-vinyasa" element={<VinyasaForm />} />
         <Route path="/vinyasa-preview" element={<VinyasaPreview />} />
         <Route path="/my-vinyasas" element={<MyVinyasas />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </Router>

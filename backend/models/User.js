@@ -18,5 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+
+  User.associate = (models) => {
+    User.hasMany(models.Vinyasa, { foreignKey: "userId" });
+  };
+
   return User;
 };

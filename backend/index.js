@@ -1,14 +1,12 @@
-// backend/index.js
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-const myVinyasasRoute = require("./routes/myVinyasas");
+const myVinyasasRoute = require("./routes/myvinyasas");
 const usersRoute = require("./routes/users");
 const testRoute = require("./routes/test");
 const paymentRoute = require("./payment");
-
-require("dotenv").config();
 
 const app = express();
 
@@ -35,7 +33,7 @@ app.use("/payment", paymentRoute);
 app.use("/api/test", testRoute);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Backend Welcome!");
 });
 
 module.exports = app;
