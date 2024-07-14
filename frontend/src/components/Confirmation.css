@@ -1,0 +1,23 @@
+/* src/components/Confirmation.css */
+
+.confirmation-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .confirmation-actions .btn {
+    background-color: #3f3f3f;
+    color: #e0829d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .confirmation-actions .btn:hover {
+    background-color: #036264;
+    color: #fff;
+  }

@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "ADMIN",
-    "password": "*****",
-    "database": "yoga_on_a_dime",
+    "username": "new_admin",
+    "password": "Kobe=Mamba",
+    "database": "new_yoga_on_a_dime",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "ADMIN",
-    "password": "*****",
+    "username": "new_admin",
+    "password": "Kobe=Mamba",
     "database": "YOAD_DB_TEST",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "ADMIN",
-    "password": "******",
-    "database": "yoga_on_a_dime",
+    "username": "new_admin",
+    "password": "Kobe=Mamba",
+    "database": "new_yoga_on_a_dime",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

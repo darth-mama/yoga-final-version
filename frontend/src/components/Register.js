@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Register = () => {
     password: "",
   });
 
+  // const { login } = useAuth;
   const navigate = useNavigate();
 
   const { username, email, password } = formData;
@@ -19,13 +21,16 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const res = await axios.post(
         "http://localhost:5001/auth/register",
         formData
       );
       console.log(res.data);
-      navigate("/login");
+      localStorage.setItem("token", res.data.token);
+      // Save the flow
+      navigate("/save-flow");
     } catch (err) {
       console.error("Error registering:", err.response.data);
     }
@@ -34,6 +39,7 @@ const Register = () => {
   return (
     <div>
       <h2>Register</h2>
+
       <form onSubmit={onSubmit}>
         <input
           type="text"
@@ -59,10 +65,10 @@ const Register = () => {
           placeholder="Password"
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit">Join Now</button>
       </form>
       <p>
-        Already have an account? <a href="/login">Login</a>
+        Already have an account? <a href="/login">Sign In</a>
       </p>
     </div>
   );

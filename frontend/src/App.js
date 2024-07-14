@@ -1,7 +1,6 @@
 import React from "react";
 import AppContent from "./components/AppContent";
-
-import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

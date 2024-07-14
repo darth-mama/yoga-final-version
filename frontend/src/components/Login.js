@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const { username, password } = formData;
@@ -23,13 +24,17 @@ const Login = () => {
         "http://localhost:5001/auth/login",
         formData
       );
-      console.log(res.data);
-      // Assuming res.data contains user info and a token
-      localStorage.setItem("token", res.data.token);
-      // Redirect to the vinyasa list or dashboard
-      navigate("/vinyasas");
+      console.log("Login response:", res); // Log the entire response
+      if (res && res.data) {
+        login(res.data.user, res.data.token);
+        navigate("/my-vinyasas");
+      } else {
+        console.error("Login response is missing data:", res);
+        // Handle missing data scenario
+      }
     } catch (err) {
-      console.error("Error logging in:", err.response.data);
+      console.error("Error logging in:", err.response || err.message);
+      // Handle login error scenario
     }
   };
 
@@ -53,10 +58,10 @@ const Login = () => {
           placeholder="Password"
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign In</button>
       </form>
       <p>
-        Don't have an account? <a href="/register">Register</a>
+        Don't have an account? <a href="/register">Join Now</a>
       </p>
     </div>
   );

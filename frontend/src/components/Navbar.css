@@ -1,0 +1,69 @@
+/* src/components/Navbar.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.custom-navbar {
+  background-color: #3f3f3f; /* Slate gray */
+  padding: 0 20px;
+}
+
+.brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e0829d !important; /* Lavender */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand-container:hover {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  clip-path: circle(50%);
+}
+
+.navbar-brand-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+.navbar-nav .nav-link {
+  color: #e0829d !important; /* Lavender */
+  font-size: 20px; /* Match font size of login text */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #8f5774 !important; /* Pale pink */
+}
+
+.nav-link-custom {
+  margin: 0 20px; /* Centering the links */
+}
+
+.nav-button {
+  margin-left: 10px;
+  border-radius: 20px; /* Oval shape */
+  color: #e0829d !important; /* Lavender */
+  border: 2px solid #e0829d !important; /* Lavender border */
+  font-size: 20px; /* Match font size of login text */
+}
+
+.nav-button:hover {
+  background-color: #e0829d !important; /* Lavender */
+  color: #3f3f3f !important; /* Slate gray */
+}
+
+.ms-auto {
+  margin-left: auto !important;
+}

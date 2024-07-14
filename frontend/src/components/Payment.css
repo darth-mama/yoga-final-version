@@ -1,0 +1,21 @@
+/* src/components/Payment.css */
+
+.payment-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .payment-container .btn {
+    background-color: #3f3f3f;
+    color: #e0829d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .payment-container .btn:hover {
+    background-color: #036264;
+    color: #fff;
+  }

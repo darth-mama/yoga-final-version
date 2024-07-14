@@ -1,0 +1,18 @@
+/* src/components/FlowPreview.css */
+.custom-button {
+    background-color: #464b37;
+    color: #dac4d0;
+    border: none;
+  }
+
+  .custom-button:hover {
+    background-color: #262b15;
+    color: #afafb4;
+  }
+
+  .custom-button:focus {
+    background-color: #464b37;
+    color: #dac4d0;
+    outline: none;
+    box-shadow: none;
+  }

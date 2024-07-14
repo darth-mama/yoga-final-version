@@ -3,11 +3,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-const myVinyasasRoute = require("./routes/myvinyasas");
+const myVinyasasRoute = require("./routes/myVinyasas");
 const usersRoute = require("./routes/users");
 const testRoute = require("./routes/test");
 const paymentRoute = require("./payment");
-
+const { authenticateToken } = require("./middleware/auth");
 const app = express();
 
 // Enable CORS for all routes
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/api/myvinyasas", myVinyasasRoute);
+app.use("/api/myvinyasas", authenticateToken, myVinyasasRoute); // Removed global authenticateToken middleware
 app.use("/users", usersRoute);
 app.use("/payment", paymentRoute);
 app.use("/api/test", testRoute);

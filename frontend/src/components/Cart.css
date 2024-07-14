@@ -1,0 +1,38 @@
+/* src/components/Cart.css */
+
+.cart-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .cart-actions .btn {
+    background-color: #3f3f3f;
+    color: #e0829d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .cart-actions .btn:hover {
+    background-color: #036264;
+    color: #fff;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .cart-item .form-control {
+    width: 60px;
+  }
