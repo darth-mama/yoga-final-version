@@ -1,69 +1,59 @@
-/* src/components/Navbar.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
 .custom-navbar {
-  background-color: #3f3f3f; /* Slate gray */
-  padding: 0 20px;
+  background-color: #3f3f3f;
 }
 
 .brand-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #e0829d !important; /* Lavender */
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.brand-container:hover {
   text-decoration: none;
 }
 
 .navbar-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  clip-path: circle(50%);
+  height: 40px;
+  width: auto;
+  margin-bottom: 5px;
 }
 
 .navbar-brand-text {
-  font-family: 'Dancing Script', cursive;
+  color: #e0829d !important;
+  font-weight: bold;
   font-size: 24px;
-  margin-top: 5px;
-}
-
-.navbar-nav .nav-link {
-  color: #e0829d !important; /* Lavender */
-  font-size: 20px; /* Match font size of login text */
-}
-
-.navbar-nav .nav-link:hover {
-  color: #8f5774 !important; /* Pale pink */
+  font-family: 'Dancing Script', cursive;
 }
 
 .nav-link-custom {
-  margin: 0 20px; /* Centering the links */
+  color: #e0829d !important;
+  font-size: 18px;
+  margin: 0 10px;
 }
 
 .nav-button {
   margin-left: 10px;
-  border-radius: 20px; /* Oval shape */
-  color: #e0829d !important; /* Lavender */
-  border: 2px solid #e0829d !important; /* Lavender border */
-  font-size: 20px; /* Match font size of login text */
+  border-radius: 20px;
+  color: #e0829d !important;
+  border: 2px solid #e0829d !important;
 }
 
 .nav-button:hover {
-  background-color: #e0829d !important; /* Lavender */
-  color: #3f3f3f !important; /* Slate gray */
+  background-color: #e0829d !important;
+  color: #3f3f3f !important;
 }
 
 .ms-auto {
   margin-left: auto !important;
+}
+
+.user-logo {
+  background-color: #e0829d;
+  color: #3f3f3f;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
 }

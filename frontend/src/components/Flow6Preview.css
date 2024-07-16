@@ -1,18 +1,33 @@
-/* src/components/FlowPreview.css */
+
+.page-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #036264;
+  text-shadow: 1px 1px #464b37;
+}
+
+.name-saved-button {
+  background-color: #8f5774 !important;
+  border: none !important;
+}
+
+.custom-button:disabled {
+  background-color: #8f5774 !important;
+  border: none !important;
+}
+
 .custom-button {
-    background-color: #464b37;
-    color: #dac4d0;
-    border: none;
-  }
+  margin-top: 10px;
+  background-color: #3f3f3f;
+  color: #e0829d;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-  .custom-button:hover {
-    background-color: #262b15;
-    color: #afafb4;
-  }
-
-  .custom-button:focus {
-    background-color: #464b37;
-    color: #dac4d0;
-    outline: none;
-    box-shadow: none;
-  }
+.custom-button:hover {
+  background-color: #8f5774 !important;
+  color: #fff !important;
+}

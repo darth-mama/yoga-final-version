@@ -43,7 +43,6 @@ const SavedFlows = () => {
                 <Card.Text>
                   Created At: {new Date(flow.createdAt).toLocaleString()}
                 </Card.Text>
-                {/* Display other details as needed */}
               </Card.Body>
             </Card>
           </Col>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import "./Auth.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -24,24 +25,21 @@ const Login = () => {
         "http://localhost:5001/auth/login",
         formData
       );
-      console.log("Login response:", res); // Log the entire response
       if (res && res.data) {
         login(res.data.user, res.data.token);
-        navigate("/my-vinyasas");
+        navigate("/user-landing");
       } else {
         console.error("Login response is missing data:", res);
-        // Handle missing data scenario
       }
     } catch (err) {
       console.error("Error logging in:", err.response || err.message);
-      // Handle login error scenario
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit}>
+    <div className="auth-container">
+      <h1 className="page-title">Login</h1>
+      <form onSubmit={onSubmit} className="auth-form">
         <input
           type="text"
           name="username"
@@ -49,6 +47,7 @@ const Login = () => {
           onChange={onChange}
           placeholder="Username"
           required
+          className="auth-input"
         />
         <input
           type="password"
@@ -57,11 +56,14 @@ const Login = () => {
           onChange={onChange}
           placeholder="Password"
           required
+          className="auth-input"
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="auth-button">
+          Login
+        </button>
       </form>
       <p>
-        Don't have an account? <a href="/register">Join Now</a>
+        Don't have an account? <a href="/register">Register</a>
       </p>
     </div>
   );

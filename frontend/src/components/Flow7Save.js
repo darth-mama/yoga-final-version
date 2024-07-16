@@ -12,12 +12,11 @@ const Flow7Save = () => {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
-          console.log("No token found, redirecting to login...");
+          console.log("No token found, saving flow to local storage...");
+          localStorage.setItem("unsavedFlow", JSON.stringify(flow));
           navigate("/login");
           return;
         }
-
-        console.log("Saving flow:", flow); // Log the flow data being saved
 
         const config = {
           headers: { Authorization: `Bearer ${token}` },
@@ -28,7 +27,8 @@ const Flow7Save = () => {
           config
         );
         console.log("Flow saved successfully:", response.data);
-        resetFlow(); // Clear the flow after saving
+        resetFlow();
+        localStorage.removeItem("unsavedFlow");
         navigate("/my-vinyasas");
       } catch (error) {
         console.error("Error saving flow:", error);
@@ -39,7 +39,6 @@ const Flow7Save = () => {
     if (flow.name) {
       saveFlow();
     } else {
-      console.log("No flow name found, redirecting to flow start...");
       navigate("/flow-start");
     }
   }, [flow, navigate, resetFlow]);

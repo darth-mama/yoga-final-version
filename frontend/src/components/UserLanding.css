@@ -1,0 +1,33 @@
+
+
+.user-landing-container {
+  text-align: center;
+  color: #262b15;
+  background-color: #F4EAD5;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.page-title {
+  font-family: 'Dancing Script', cursive;
+  color: #8f5774;
+}
+
+.nav-links {
+  margin-top: 20px;
+}
+
+.nav-link-custom {
+  display: block;
+  color: #3f3f3f;
+  font-size: 18px;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.nav-link-custom:hover {
+  color: #8f5774;
+}

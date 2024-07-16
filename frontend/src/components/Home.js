@@ -1,13 +1,11 @@
-//
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import "../index.css";
 import lotusImage from "../images/lotusImage2.jpg";
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
     <Container className="home-container">
       <Row>
@@ -27,12 +25,9 @@ const Home = () => {
               own guru in creating their own yoga flow experience.
             </p>
           </div>
-          <button
-            onClick={() => navigate("/create-vinyasa")}
-            className="Home-button"
-          >
-            Create Your Own Flow
-          </button>
+          <Link to="/login" className="Home-link">
+            To create your own flow, Sign up or Join now!
+          </Link>
         </Col>
       </Row>
     </Container>

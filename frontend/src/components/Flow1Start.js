@@ -1,6 +1,5 @@
-// src/components/FlowStart.js
 import React, { useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Row, Col } from "react-bootstrap";
 import { useFlow } from "../context/FlowContext";
 import "./Flow1Start.css";
@@ -10,7 +9,7 @@ import mudra from "../images/mudra.jpg";
 import pranayama from "../images/pranayama.jpg";
 import aroma from "../images/aroma.jpg";
 
-const FlowStart = () => {
+const Flow1Start = () => {
   const navigate = useNavigate();
   const { resetFlow } = useFlow();
 
@@ -58,4 +57,4 @@ const FlowStart = () => {
   );
 };
 
-export default FlowStart;
+export default Flow1Start;

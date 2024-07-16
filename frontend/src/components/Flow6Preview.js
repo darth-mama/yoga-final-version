@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -22,20 +22,24 @@ const FlowPreview = () => {
   const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setFlowName(flow.name || "");
+  }, [flow.name]);
+
   const saveFlowName = () => {
     setFlow((prevFlow) => ({ ...prevFlow, name: flowName }));
     setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
+    setTimeout(() => setShowAlert(false), 3000);
   };
 
   const startOver = () => {
     resetFlow();
-    navigate("/flow-start");
+    navigate("/poses");
   };
 
   const handleSaveFlowClick = async () => {
     if (user) {
-      await saveFlow(); // If the user is already authenticated, save the flow
+      await saveFlow();
     } else {
       navigate("/login");
     }
@@ -64,7 +68,9 @@ const FlowPreview = () => {
     <Container className="mt-4">
       <h1 className="page-title">Flow Preview</h1>
       <Form.Group className="mb-3">
-        <Form.Label>Flow Name</Form.Label>
+        <Form.Label>
+          Flow Name <span style={{ color: "red" }}>(Required)</span>
+        </Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter flow name"
@@ -85,7 +91,7 @@ const FlowPreview = () => {
           <h5>Selected Poses:</h5>
           <ListGroup>
             {flow.poses.map((pose) => (
-              <ListGroup.Item key={pose.id}>{pose.name}</ListGroup.Item>
+              <ListGroup.Item key={pose.id}>{pose.english_name}</ListGroup.Item>
             ))}
           </ListGroup>
           <h5>Selected Mudras:</h5>
@@ -120,7 +126,7 @@ const FlowPreview = () => {
             variant="success"
             onClick={handleSaveFlowClick}
           >
-            Login/Register to Save Flow
+            {user ? "Save Flow" : "Login/Register to Save Flow"}
           </Button>
         </Col>
       </Row>

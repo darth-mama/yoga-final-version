@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
+import "./Auth.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,7 @@ const Register = () => {
     email: "",
     password: "",
   });
-
-  // const { login } = useAuth;
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const { username, email, password } = formData;
@@ -21,26 +21,26 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const res = await axios.post(
         "http://localhost:5001/auth/register",
         formData
       );
-      console.log(res.data);
-      localStorage.setItem("token", res.data.token);
-      // Save the flow
-      navigate("/save-flow");
+      if (res && res.data) {
+        login(res.data.user, res.data.token);
+        navigate("/user-landing");
+      } else {
+        console.error("Register response is missing data:", res);
+      }
     } catch (err) {
-      console.error("Error registering:", err.response.data);
+      console.error("Error registering:", err.response || err.message);
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-
-      <form onSubmit={onSubmit}>
+    <div className="auth-container">
+      <h1 className="page-title">Register</h1>
+      <form onSubmit={onSubmit} className="auth-form">
         <input
           type="text"
           name="username"
@@ -48,6 +48,7 @@ const Register = () => {
           onChange={onChange}
           placeholder="Username"
           required
+          className="auth-input"
         />
         <input
           type="email"
@@ -56,6 +57,7 @@ const Register = () => {
           onChange={onChange}
           placeholder="Email"
           required
+          className="auth-input"
         />
         <input
           type="password"
@@ -64,11 +66,14 @@ const Register = () => {
           onChange={onChange}
           placeholder="Password"
           required
+          className="auth-input"
         />
-        <button type="submit">Join Now</button>
+        <button type="submit" className="auth-button">
+          Register
+        </button>
       </form>
       <p>
-        Already have an account? <a href="/login">Sign In</a>
+        Already have an account? <a href="/login">Login</a>
       </p>
     </div>
   );

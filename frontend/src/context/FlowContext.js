@@ -1,5 +1,5 @@
 // src/context/FlowContext.js
-import React, { createContext, useState, useContext, useCallback } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const FlowContext = createContext();
 
@@ -13,6 +13,17 @@ export const FlowProvider = ({ children }) => {
     pranayamas: [],
     aromas: [],
   });
+
+  useEffect(() => {
+    const savedFlow = JSON.parse(localStorage.getItem("flow"));
+    if (savedFlow) {
+      setFlow(savedFlow);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("flow", JSON.stringify(flow));
+  }, [flow]);
 
   const addPose = (pose) => {
     setFlow((prevFlow) => ({
@@ -71,7 +82,8 @@ export const FlowProvider = ({ children }) => {
       aromas: prevFlow.aromas.filter((aroma) => aroma.id !== aromaId),
     }));
   };
-  const resetFlow = useCallback(() => {
+
+  const resetFlow = () => {
     setFlow({
       name: "",
       poses: [],
@@ -79,16 +91,9 @@ export const FlowProvider = ({ children }) => {
       pranayamas: [],
       aromas: [],
     });
-  }, []);
-  // const resetFlow = () => {
-  //   setFlow({
-  //     name: "",
-  //     poses: [],
-  //     mudras: [],
-  //     pranayamas: [],
-  //     aromas: [],
-  //   });
-  // };
+    localStorage.removeItem("flow");
+  };
+
   return (
     <FlowContext.Provider
       value={{

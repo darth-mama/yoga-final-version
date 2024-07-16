@@ -1,10 +1,10 @@
-// src/components/Aromas.js
 import React from "react";
 import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { useFlow } from "../context/FlowContext";
 import "./PageTitle.css";
+
 const aromasData = [
   { id: uuidv4(), name: "Lavender", description: "Calming" },
   { id: uuidv4(), name: "Peppermint", description: "Energizing" },
@@ -45,7 +45,9 @@ const Aromas = () => {
             <h5>Selected Poses:</h5>
             <ListGroup>
               {flow.poses.map((pose) => (
-                <ListGroup.Item key={pose.id}>{pose.name}</ListGroup.Item>
+                <ListGroup.Item key={pose.id}>
+                  {pose.english_name}
+                </ListGroup.Item>
               ))}
             </ListGroup>
             <h5>Selected Mudras:</h5>

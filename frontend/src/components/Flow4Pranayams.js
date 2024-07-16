@@ -1,4 +1,3 @@
-// src/components/Pranayamas.js
 import React from "react";
 import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
@@ -52,7 +51,9 @@ const Pranayamas = () => {
             <h5>Selected Poses:</h5>
             <ListGroup>
               {flow.poses.map((pose) => (
-                <ListGroup.Item key={pose.id}>{pose.name}</ListGroup.Item>
+                <ListGroup.Item key={pose.id}>
+                  {pose.english_name}
+                </ListGroup.Item>
               ))}
             </ListGroup>
             <h5>Selected Mudras:</h5>
